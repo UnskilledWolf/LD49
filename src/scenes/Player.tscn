@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Player.gd" type="Script" id=2]
+[ext_resource path="res://src/sprites/ComputerIcons1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 16 )
@@ -55,5 +56,11 @@ margin_bottom = 32.0
 
 [node name="WorkTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Holding" type="Sprite" parent="."]
+visible = false
+position = Vector2( 0, -88 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
 
 [connection signal="timeout" from="WorkTimer" to="." method="_on_WorkTimer_timeout"]

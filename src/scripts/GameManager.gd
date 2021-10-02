@@ -2,9 +2,11 @@ extends Node
 
 signal start_work
 signal end_work
+signal open_constructor
 
 var reactor_stability: float = 100
 var constructor_credits: int = 0
+var player_node: Player;
 
 func remove_reactor_stability(change: float):
 	# Removes, but is clamped between 0 and 100
@@ -25,3 +27,8 @@ func complete_work(reward: int, penalty: float):
 
 func computer_interact():
 	emit_signal("start_work", "computer", 0, 0, 0)
+
+func open_constructor():
+	if not player_node.is_holding_item:
+		emit_signal("start_work", "constructor", 0, 0, 0)
+		emit_signal("open_constructor")

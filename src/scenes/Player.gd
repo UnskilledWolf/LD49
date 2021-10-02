@@ -11,14 +11,17 @@ enum PlayerFacing {
 export var speed: Vector2
 var facing = PlayerFacing.down
 var can_move = true
+var is_holding_item = false
 
 var tmp_work_reward
 var tmp_work_penalty
+var tmp_item_damage
 
 func _ready():
 	set_process_input(true)
 	GameManager.connect("start_work", self, "_on_gm_start_work")
 	GameManager.connect("end_work", self, "_on_gm_end_work")
+	GameManager.player_node = self
 
 func _input(event):
 	# Only accept inputs when the player can also move
@@ -59,10 +62,21 @@ func interact():
 		print("[Player] Hit " + hit.name)
 		hit.interact()
 
+func give_item(texture: Texture, damage: float):
+	$Holding.texture = texture
+	$Holding.visible = true
+	is_holding_item = true
+	tmp_item_damage = damage
+
+func remove_item():
+	$Holding.visible = false
+	GameManager.remove_reactor_stability(tmp_item_damage)
+	is_holding_item = false
+
 func _on_gm_start_work(name: String, duration: float, reward: int, penalty: float):
 	can_move = false
 	
-	if name != "computer":
+	if name != "computer" and name != "constructor":
 		$WorkTimer.start(duration)
 		tmp_work_reward = reward
 		tmp_work_penalty = penalty
