@@ -20,22 +20,24 @@ func _ready():
 	GameManager.connect("start_work", self, "_on_gm_start_work")
 
 func _input(event):
-	if Input.is_action_just_pressed("interact"):
-		interact()
-	
-	# Rotate the raycast and set the facing value
-	if Input.is_action_just_pressed("up"):
-		facing = PlayerFacing.up
-		$RayCast2D.rotation_degrees = 180;
-	elif Input.is_action_just_pressed("down"):
-		facing = PlayerFacing.down
-		$RayCast2D.rotation_degrees = 0;
-	elif Input.is_action_just_pressed("left"):
-		facing = PlayerFacing.left
-		$RayCast2D.rotation_degrees = 90;
-	elif Input.is_action_just_pressed("right"):
-		facing = PlayerFacing.right
-		$RayCast2D.rotation_degrees = -90;
+	# Only accept inputs when the player can also move
+	if can_move:
+		if Input.is_action_just_pressed("interact"):
+			interact()
+		
+		# Rotate the raycast and set the facing value
+		if Input.is_action_just_pressed("up"):
+			facing = PlayerFacing.up
+			$RayCast2D.rotation_degrees = 180;
+		elif Input.is_action_just_pressed("down"):
+			facing = PlayerFacing.down
+			$RayCast2D.rotation_degrees = 0;
+		elif Input.is_action_just_pressed("left"):
+			facing = PlayerFacing.left
+			$RayCast2D.rotation_degrees = 90;
+		elif Input.is_action_just_pressed("right"):
+			facing = PlayerFacing.right
+			$RayCast2D.rotation_degrees = -90;
 
 func _process(delta):
 	#Update progress bar

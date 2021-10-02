@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/sprites/Screen_Border.png" type="Texture" id=1]
+[ext_resource path="res://src/sprites/Screen.png" type="Texture" id=2]
+[ext_resource path="res://src/scenes/Screen.gd" type="Script" id=3]
+
+[node name="Screen" type="Sprite"]
+texture = ExtResource( 1 )
+script = ExtResource( 3 )
+normal_color = Color( 0.47451, 1, 0.431373, 1 )
+danger_color = Color( 1, 0.431373, 0.431373, 1 )
+
+[node name="Screen_Inner" type="Sprite" parent="."]
+modulate = Color( 0.47451, 1, 0.431373, 1 )
+texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_left = -127.0
+margin_top = -24.0
+margin_right = 127.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Control/VBoxContainer"]
+margin_right = 254.0
+margin_bottom = 14.0
+text = "Reactor Stability"
+
+[node name="StabilityBar" type="ProgressBar" parent="Control/VBoxContainer"]
+modulate = Color( 1, 1, 1, 0.901961 )
+margin_top = 18.0
+margin_right = 254.0
+margin_bottom = 32.0

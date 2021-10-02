@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://src/sprites/Map.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://src/scenes/panels/PanelF1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/scenes/panels/Panel3.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/scenes/panels/Panel2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/scenes/Screen.tscn" type="PackedScene" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 936, 112 )
@@ -57,6 +58,9 @@ position = Vector2( 32, 352 )
 
 [node name="PanelF2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 704, 320 )
+
+[node name="Screen" parent="." instance=ExtResource( 12 )]
+position = Vector2( 80, -88 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, 76.722 )
