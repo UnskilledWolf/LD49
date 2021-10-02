@@ -28,6 +28,10 @@ config/icon="res://icon.png"
 
 GameManager="*res://src/scripts/GameManager.gd"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 up={

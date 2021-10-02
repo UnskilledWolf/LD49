@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/sprites/Map.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://src/scenes/ComputerUI.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/scenes/Constructor.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/scenes/ConstructorUI.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/scenes/Trash.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/scenes/ReactorInteract.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 936, 112 )
@@ -63,11 +65,16 @@ position = Vector2( 704, 320 )
 [node name="Screen" parent="." instance=ExtResource( 12 )]
 position = Vector2( 80, -88 )
 
+[node name="Trash" parent="." instance=ExtResource( 17 )]
+position = Vector2( 992, 368 )
+
 [node name="Computer" parent="." instance=ExtResource( 13 )]
 position = Vector2( 1160, 112 )
 
 [node name="Constructor" parent="." instance=ExtResource( 15 )]
 position = Vector2( 1024, -56 )
+
+[node name="ReactorInteract" parent="." instance=ExtResource( 18 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, 76.722 )
@@ -94,7 +101,6 @@ visible = false
 position = Vector2( 464, 304 )
 
 [node name="Collisions" type="Node2D" parent="."]
-visible = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Collisions"]
 position = Vector2( 0, -216 )
