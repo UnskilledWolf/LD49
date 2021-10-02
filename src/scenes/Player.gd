@@ -1,7 +1,36 @@
 extends KinematicBody2D
 class_name Player
 
+enum PlayerFacing {
+	up,
+	down,
+	left,
+	right
+}
+
 export var speed: Vector2;
+var facing = PlayerFacing.down
+
+func _ready():
+	set_process_input(true)
+
+func _input(event):
+	if Input.is_action_just_pressed("interact"):
+		interact()
+	
+	# Rotate the raycast and set the facing value
+	if Input.is_action_just_pressed("up"):
+		facing = PlayerFacing.up
+		$RayCast2D.rotation_degrees = 180;
+	elif Input.is_action_just_pressed("down"):
+		facing = PlayerFacing.down
+		$RayCast2D.rotation_degrees = 0;
+	elif Input.is_action_just_pressed("left"):
+		facing = PlayerFacing.left
+		$RayCast2D.rotation_degrees = 90;
+	elif Input.is_action_just_pressed("right"):
+		facing = PlayerFacing.right
+		$RayCast2D.rotation_degrees = -90;
 
 func _physics_process(delta):
 	var direction = Vector2(
@@ -9,3 +38,9 @@ func _physics_process(delta):
 			Input.get_action_strength("down")-Input.get_action_strength("up")
 	) * speed
 	move_and_slide(direction, Vector2.ZERO)
+
+func interact():
+	if($RayCast2D.is_colliding()):
+		var hit = $RayCast2D.get_collider()
+		print("[Player] Hit " + hit.name)
+		hit.interact()
