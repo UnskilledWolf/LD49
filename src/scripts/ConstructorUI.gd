@@ -19,7 +19,7 @@ func _on_gm_open_constructor():
 	$CenterContainer/PanelContainer/VBoxContainer/CreditsContainer/CreditAmount.text = String(GameManager.constructor_credits)
 	self.visible = true
 
-func _on_gm_end_work():
+func _on_gm_end_work(_reward):
 	self.visible = false
 
 func _on_CloseButton_pressed():

@@ -14,5 +14,5 @@ func interact():
 	GameManager.interact(panel_name, duration, reward, penalty)
 	$Sprite.texture = closed_texture
 
-func _on_gm_end_work():
+func _on_gm_end_work(_reward):
 	$Sprite.texture = open_texture

@@ -16,7 +16,7 @@ func _on_gm_start_work(name: String, duration: float, reward: int, penalty: floa
 	if name == "computer":
 		self.visible = true
 
-func _on_gm_end_work():
+func _on_gm_end_work(_reward):
 	self.visible = false
 
 func _on_HackButton_pressed():

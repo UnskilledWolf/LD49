@@ -110,8 +110,12 @@ func _on_gm_start_work(name: String, duration: float, reward: int, penalty: floa
 		$WorkProgress/VBoxContainer/ProgressBar.max_value = duration
 		$WorkProgress.visible = true
 
-func _on_gm_end_work():
+func _on_gm_end_work(reward: int):
 	can_move = true
+	
+	if reward > 0:
+		$CreditGainParticles.amount = reward
+		$CreditGainParticles.restart()
 
 func _on_WorkTimer_timeout():
 	can_move = true
