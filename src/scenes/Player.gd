@@ -8,11 +8,16 @@ enum PlayerFacing {
 	right
 }
 
-export var speed: Vector2;
+export var speed: Vector2
 var facing = PlayerFacing.down
+var can_move = true
+
+var tmp_work_reward
+var tmp_work_penalty
 
 func _ready():
 	set_process_input(true)
+	GameManager.connect("start_work", self, "_on_gm_start_work")
 
 func _input(event):
 	if Input.is_action_just_pressed("interact"):
@@ -32,15 +37,34 @@ func _input(event):
 		facing = PlayerFacing.right
 		$RayCast2D.rotation_degrees = -90;
 
+func _process(delta):
+	#Update progress bar
+	$WorkProgress/VBoxContainer/ProgressBar.value = $WorkTimer.wait_time - $WorkTimer.time_left
+
 func _physics_process(delta):
 	var direction = Vector2(
 			Input.get_action_strength("right")-Input.get_action_strength("left"),
 			Input.get_action_strength("down")-Input.get_action_strength("up")
 	) * speed
-	move_and_slide(direction, Vector2.ZERO)
+	
+	if can_move:
+		move_and_slide(direction, Vector2.ZERO)
 
 func interact():
 	if($RayCast2D.is_colliding()):
 		var hit = $RayCast2D.get_collider()
 		print("[Player] Hit " + hit.name)
 		hit.interact()
+
+func _on_gm_start_work(name: String, duration: float, reward: int, penalty: float):
+	can_move = false
+	$WorkTimer.start(duration)
+	tmp_work_reward = reward
+	tmp_work_penalty = penalty
+	$WorkProgress/VBoxContainer/ProgressBar.max_value = duration
+	$WorkProgress.visible = true
+
+func _on_WorkTimer_timeout():
+	can_move = true
+	$WorkProgress.visible = false
+	GameManager.complete_work(tmp_work_reward, tmp_work_penalty)
