@@ -22,3 +22,6 @@ func complete_work(reward: int, penalty: float):
 	remove_reactor_stability(-penalty) # Actually add, because minux negative is positive
 	add_constructor_credits(reward)
 	emit_signal("end_work")
+
+func computer_interact():
+	emit_signal("start_work", "computer", 0, 0, 0)

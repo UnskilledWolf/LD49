@@ -18,6 +18,7 @@ var tmp_work_penalty
 func _ready():
 	set_process_input(true)
 	GameManager.connect("start_work", self, "_on_gm_start_work")
+	GameManager.connect("end_work", self, "_on_gm_end_work")
 
 func _input(event):
 	# Only accept inputs when the player can also move
@@ -60,11 +61,16 @@ func interact():
 
 func _on_gm_start_work(name: String, duration: float, reward: int, penalty: float):
 	can_move = false
-	$WorkTimer.start(duration)
-	tmp_work_reward = reward
-	tmp_work_penalty = penalty
-	$WorkProgress/VBoxContainer/ProgressBar.max_value = duration
-	$WorkProgress.visible = true
+	
+	if name != "computer":
+		$WorkTimer.start(duration)
+		tmp_work_reward = reward
+		tmp_work_penalty = penalty
+		$WorkProgress/VBoxContainer/ProgressBar.max_value = duration
+		$WorkProgress.visible = true
+
+func _on_gm_end_work():
+	can_move = true
 
 func _on_WorkTimer_timeout():
 	can_move = true
