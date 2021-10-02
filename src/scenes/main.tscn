@@ -78,6 +78,7 @@ position = Vector2( 1160, 112 )
 position = Vector2( 1024, -56 )
 
 [node name="ReactorInteract" parent="." instance=ExtResource( 18 )]
+position = Vector2( -456, 88 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2( 0, 76.722 )

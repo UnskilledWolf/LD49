@@ -12,8 +12,7 @@ func buy(id: int):
 	if GameManager.constructor_credits >= prices[id]:
 		GameManager.constructor_credits -= prices[id]
 		GameManager.player_node.give_item(textures[id], damage[id])
-		
-	GameManager.complete_work(0,0)
+		GameManager.complete_work(0,0)
 
 func _on_gm_open_constructor():
 	$CenterContainer/PanelContainer/VBoxContainer/CreditsContainer/CreditAmount.text = String(GameManager.constructor_credits)

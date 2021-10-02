@@ -17,6 +17,7 @@ var is_holding_item = false
 var tmp_work_reward
 var tmp_work_penalty
 var tmp_item_damage
+var tmp_item_texture
 
 func _ready():
 	set_process_input(true)
@@ -94,6 +95,7 @@ func give_item(texture: Texture, damage: float):
 	$Holding.visible = true
 	is_holding_item = true
 	tmp_item_damage = damage
+	tmp_item_texture = texture
 
 func remove_item():
 	$Holding.visible = false
