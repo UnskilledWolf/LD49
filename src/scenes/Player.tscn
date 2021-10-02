@@ -21,7 +21,7 @@ shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 enabled = true
-cast_to = Vector2( 0, 66.385 )
+cast_to = Vector2( 0, 75 )
 collision_mask = 4
 
 [node name="WorkProgress" type="Control" parent="."]
@@ -57,10 +57,14 @@ margin_bottom = 32.0
 [node name="WorkTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="PassiveGainTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
 [node name="Holding" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0, -88 )
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [connection signal="timeout" from="WorkTimer" to="." method="_on_WorkTimer_timeout"]
+[connection signal="timeout" from="PassiveGainTimer" to="." method="_on_PassiveGainTimer_timeout"]

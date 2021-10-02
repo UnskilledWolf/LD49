@@ -9,6 +9,7 @@ enum PlayerFacing {
 }
 
 export var speed: Vector2
+export var passive_gain:int = 1
 var facing = PlayerFacing.down
 var can_move = true
 var is_holding_item = false
@@ -90,3 +91,7 @@ func _on_WorkTimer_timeout():
 	can_move = true
 	$WorkProgress.visible = false
 	GameManager.complete_work(tmp_work_reward, tmp_work_penalty)
+
+
+func _on_PassiveGainTimer_timeout():
+	GameManager.add_constructor_credits(passive_gain)

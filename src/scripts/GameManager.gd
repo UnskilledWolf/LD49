@@ -6,7 +6,8 @@ signal open_constructor
 
 var reactor_stability: float = 100
 var constructor_credits: int = 0
-var player_node: Player;
+var player_node
+var countdown_timer: Timer
 
 func remove_reactor_stability(change: float):
 	# Removes, but is clamped between 0 and 100
@@ -32,3 +33,6 @@ func open_constructor():
 	if not player_node.is_holding_item:
 		emit_signal("start_work", "constructor", 0, 0, 0)
 		emit_signal("open_constructor")
+
+func game_over():
+	player_node.position = Vector2(100,100)

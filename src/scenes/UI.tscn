@@ -36,3 +36,25 @@ margin_top = 1.0
 margin_right = 101.0
 margin_bottom = 15.0
 text = "000"
+
+[node name="TimerContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -128.0
+margin_bottom = 16.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TimerContainer"]
+margin_top = 1.0
+margin_right = 100.0
+margin_bottom = 15.0
+text = "Time To Arrival:"
+
+[node name="TimerAmount" type="Label" parent="TimerContainer"]
+margin_left = 104.0
+margin_top = 1.0
+margin_right = 128.0
+margin_bottom = 15.0
+text = "000"
