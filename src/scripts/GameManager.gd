@@ -35,4 +35,4 @@ func open_constructor():
 		emit_signal("open_constructor")
 
 func game_over():
-	player_node.position = Vector2(100,100)
+	player_node.position = Vector2(1000,1000)

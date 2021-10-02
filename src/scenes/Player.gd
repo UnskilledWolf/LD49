@@ -31,16 +31,16 @@ func _input(event):
 			interact()
 		
 		# Rotate the raycast and set the facing value
-		if Input.is_action_just_pressed("up"):
+		if Input.is_action_pressed("up"):
 			facing = PlayerFacing.up
 			$RayCast2D.rotation_degrees = 180;
-		elif Input.is_action_just_pressed("down"):
+		elif Input.is_action_pressed("down"):
 			facing = PlayerFacing.down
 			$RayCast2D.rotation_degrees = 0;
-		elif Input.is_action_just_pressed("left"):
+		elif Input.is_action_pressed("left"):
 			facing = PlayerFacing.left
 			$RayCast2D.rotation_degrees = 90;
-		elif Input.is_action_just_pressed("right"):
+		elif Input.is_action_pressed("right"):
 			facing = PlayerFacing.right
 			$RayCast2D.rotation_degrees = -90;
 
@@ -54,8 +54,34 @@ func _physics_process(delta):
 			Input.get_action_strength("down")-Input.get_action_strength("up")
 	) * speed
 	
+	set_animation(direction)
+	
 	if can_move:
 		move_and_slide(direction, Vector2.ZERO)
+
+func set_animation(direction: Vector2):
+	var to_animation = ""
+	if direction == Vector2.ZERO:
+		if facing == PlayerFacing.up:
+			to_animation = "up"
+		elif facing == PlayerFacing.down:
+			to_animation = "down"
+		elif facing == PlayerFacing.left:
+			to_animation = "left"
+		elif facing == PlayerFacing.right:
+			to_animation = "right"
+	else:
+		if facing == PlayerFacing.up:
+			to_animation = "uwalk"
+		elif facing == PlayerFacing.down:
+			to_animation = "dwalk"
+		elif facing == PlayerFacing.left:
+			to_animation = "lwalk"
+		elif facing == PlayerFacing.right:
+			to_animation = "rwalk"
+	
+	if $Sprite.animation != to_animation:
+		$Sprite.animation = to_animation
 
 func interact():
 	if($RayCast2D.is_colliding()):
