@@ -62,19 +62,19 @@ bbcode_text = "\"Captain to Engineering! We just updated the ship's computer, bu
 [b]I may be able to use the constructor to generate material that I can throw into the reactor to destabilize it.[/b]
 
 \"...Maybe you were right, I probably shouldn't install [i]unstable[/i] updates to our computer...\""
-text = "\"Captain to Engineering! We just updated the ship's computer, but now we've lost control of the controls. The computer has set itself to fly into an asteroid, that is two minutes away.\" 
+text = "\"Captain to Engineering! We just updated the ship's computer, but now we've lost control of the controls. The computer has set itself to fly into an asteroid, that is [b]two minutes[/b] away.\" 
 
-\"By the way, The  Constructor is also locked, but it still works if you have enough  credits. You can still earn them by doing tasks on the wall and floor panels or the computer.\"
+\"By the way, The [img]res://src/sprites/Constructor_Icon.png[/img] Constructor is also locked, but it still works if you have enough [img]res://src/sprites/CreditIcon.png[/img] credits. You can still earn them by doing tasks on the wall and floor panels or the computer.\"
 
-I may be able to use the constructor to generate material that I can throw into the reactor to destabilize it.
+[b]I may be able to use the constructor to generate material that I can throw into the reactor to destabilize it.[/b]
 
-\"...Maybe you were right, I probably shouldn't install unstable updates to our computer...\""
+\"...Maybe you were right, I probably shouldn't install [i]unstable[/i] updates to our computer...\""
 fit_content_height = true
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
 margin_top = 400.0
 margin_right = 500.0
 margin_bottom = 433.0
-text = "Continiue"
+text = "Continue"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
