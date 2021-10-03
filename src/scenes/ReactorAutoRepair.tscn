@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/scripts/ReactorAutoRepair.gd" type="Script" id=1]
+[ext_resource path="res://src/sounds/Start.wav" type="AudioStream" id=2]
+[ext_resource path="res://src/sounds/15Sec.wav" type="AudioStream" id=3]
+[ext_resource path="res://src/sounds/1Min.wav" type="AudioStream" id=4]
+[ext_resource path="res://src/sounds/30Sec.wav" type="AudioStream" id=5]
+[ext_resource path="res://src/sounds/Arrival.wav" type="AudioStream" id=6]
 
 [node name="ReactorAutoRepair" type="Node"]
 script = ExtResource( 1 )
@@ -14,6 +19,22 @@ autostart = true
 wait_time = 120.0
 one_shot = true
 autostart = true
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="An1Min" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="An30Sec" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="An15Sec" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="Arrival" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="timeout" from="GameEndTimer" to="." method="_on_GameEndTimer_timeout"]

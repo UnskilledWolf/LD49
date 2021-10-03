@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/30Sec.wav-abdd8107912acc0eed34ae5147790b9f.sample"
+
+[deps]
+
+source_file="res://raw/30Sec.wav"
+dest_files=[ "res://.import/30Sec.wav-abdd8107912acc0eed34ae5147790b9f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
