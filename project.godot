@@ -21,7 +21,8 @@ _global_script_class_icons={
 [application]
 
 config/name="LD49"
-run/main_scene="res://src/scenes/main.tscn"
+config/description="Make a reactor unstable :D"
+run/main_scene="res://src/scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
