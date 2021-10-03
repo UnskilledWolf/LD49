@@ -56,6 +56,7 @@ scale = Vector2( 0.958217, 1.35933 )
 texture = ExtResource( 20 )
 color = Color( 0.0196078, 0.333333, 1, 1 )
 energy = 1.88
+shadow_color = Color( 0.52549, 0.196078, 0.196078, 0.419608 )
 
 [node name="Panel1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 232, -32 )
