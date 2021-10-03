@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/theme/MainTheme.tres" type="Theme" id=1]
+[ext_resource path="res://src/fonts/NotoSansBlack.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/scripts/GameWonUI.gd" type="Script" id=3]
+[ext_resource path="res://src/fonts/NotoSansItalic.tres" type="DynamicFont" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="GameWon" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 262.0
+margin_top = 223.0
+margin_right = 762.0
+margin_bottom = 377.0
+custom_constants/separation = 13
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 500.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 2 )
+text = "You Won"
+align = 1
+
+[node name="Label2" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
+margin_top = 36.0
+margin_right = 500.0
+margin_bottom = 108.0
+rect_min_size = Vector2( 500, 0 )
+custom_fonts/italics_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "The reactor became too [i]unstable[/i] because of contaminants in the reaction chamber. The computer was forced to automatically eject it. This also instantly stoped your ship, because inertia is not a thing."
+text = "The reactor became too unstable because of contaminants in the reaction chamber. The computer was forced to automatically eject it. This also instantly stoped your ship, because inertia is not a thing."
+fit_content_height = true
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 121.0
+margin_right = 500.0
+margin_bottom = 154.0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

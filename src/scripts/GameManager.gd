@@ -3,11 +3,16 @@ extends Node
 signal start_work
 signal end_work
 signal open_constructor
+signal game_won
 
 var reactor_stability: float = 100
 var constructor_credits: int = 0
 var player_node
 var countdown_timer: Timer
+
+func _process(delta):
+	if reactor_stability <= 0:
+		emit_signal("game_won")
 
 func remove_reactor_stability(change: float):
 	# Removes, but is clamped between 0 and 100
@@ -35,4 +40,4 @@ func open_constructor():
 		emit_signal("open_constructor")
 
 func game_over():
-	player_node.position = Vector2(1000,1000)
+	get_tree().change_scene("res://src/scenes/GameOver.tscn")
