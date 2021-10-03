@@ -11,6 +11,8 @@ texture = ExtResource( 1 )
 script = ExtResource( 3 )
 normal_color = Color( 0.47451, 1, 0.431373, 1 )
 danger_color = Color( 1, 0.431373, 0.431373, 1 )
+normal_text = "Reactor Stability"
+danger_text = "REACTOR UNSTABLE"
 
 [node name="Screen_Inner" type="Sprite" parent="."]
 modulate = Color( 0.47451, 1, 0.431373, 1 )
@@ -35,15 +37,14 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="Control/VBoxContainer"]
 margin_right = 254.0
-margin_bottom = 23.0
+margin_bottom = 26.0
 text = "Reactor Stability"
 align = 1
 
 [node name="StabilityBar" type="ProgressBar" parent="Control/VBoxContainer"]
-modulate = Color( 1, 1, 1, 0.901961 )
-margin_top = 27.0
+margin_top = 30.0
 margin_right = 254.0
-margin_bottom = 50.0
+margin_bottom = 56.0
 
 [node name="Light" type="Light2D" parent="."]
 position = Vector2( 8.07794e-28, 16 )

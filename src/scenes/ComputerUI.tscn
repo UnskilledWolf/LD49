@@ -1,10 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/sprites/ComputerIcons1.png" type="Texture" id=1]
 [ext_resource path="res://src/sprites/ComputerIcons3.png" type="Texture" id=2]
 [ext_resource path="res://src/sprites/ComputerIcons2.png" type="Texture" id=3]
 [ext_resource path="res://src/scripts/ComputerUI.gd" type="Script" id=4]
 [ext_resource path="res://src/theme/MainTheme.tres" type="Theme" id=5]
+[ext_resource path="res://src/sprites/Computericon_Hover.png" type="Texture" id=6]
+
+[sub_resource type="InputEventAction" id=1]
+action = "ui_cancel"
+pressed = true
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
 
 [node name="ComputerUI" type="Control"]
 anchor_right = 1.0
@@ -14,9 +22,9 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-hack_time = 10.0
-clean_time = 20.0
-game_time = 15.0
+hack_time = 13.0
+clean_time = 5.0
+game_time = 7.0
 hack_reward = 25
 clean_reward = 5
 game_reward = 10
@@ -57,24 +65,35 @@ __meta__ = {
 [node name="HackButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_right = 64.0
 margin_bottom = 64.0
+focus_neighbour_right = NodePath("../CleanButton")
+focus_neighbour_bottom = NodePath("../../QuitButton")
 texture_normal = ExtResource( 1 )
+texture_focused = ExtResource( 6 )
 
 [node name="CleanButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_left = 82.0
 margin_right = 146.0
 margin_bottom = 64.0
+focus_neighbour_left = NodePath("../HackButton")
+focus_neighbour_right = NodePath("../GameButton")
+focus_neighbour_bottom = NodePath("../../QuitButton")
 texture_normal = ExtResource( 3 )
+texture_focused = ExtResource( 6 )
 
 [node name="GameButton" type="TextureButton" parent="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer"]
 margin_left = 164.0
 margin_right = 228.0
 margin_bottom = 64.0
+focus_neighbour_left = NodePath("../CleanButton")
+focus_neighbour_bottom = NodePath("../../QuitButton")
 texture_normal = ExtResource( 2 )
+texture_focused = ExtResource( 6 )
 
 [node name="QuitButton" type="Button" parent="CenterContainer/PanelContainer/VBoxContainer"]
 margin_top = 95.0
 margin_right = 228.0
 margin_bottom = 128.0
+shortcut = SubResource( 2 )
 text = "Exit"
 
 [connection signal="pressed" from="CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/HackButton" to="." method="_on_HackButton_pressed"]

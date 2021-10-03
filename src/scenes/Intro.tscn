@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 
-[node name="GameWon" type="Control"]
+[node name="Intro" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 1 )
@@ -35,33 +35,46 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
 margin_left = 262.0
-margin_top = 221.0
+margin_top = 83.0
 margin_right = 762.0
-margin_bottom = 378.0
+margin_bottom = 516.0
 custom_constants/separation = 13
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 margin_right = 500.0
 margin_bottom = 26.0
 custom_fonts/font = ExtResource( 2 )
-text = "You Won"
+text = "Introduction"
 align = 1
 
 [node name="Label2" type="RichTextLabel" parent="CenterContainer/VBoxContainer"]
 margin_top = 39.0
 margin_right = 500.0
-margin_bottom = 111.0
+margin_bottom = 387.0
 rect_min_size = Vector2( 500, 0 )
 custom_fonts/italics_font = ExtResource( 4 )
+custom_fonts/bold_font = ExtResource( 2 )
 bbcode_enabled = true
-bbcode_text = "The reactor became too [i]unstable[/i] because of contaminants in the reaction chamber. The computer was forced to automatically eject it. Without the main reactor, the ship could still be stopped in time."
-text = "The reactor became too unstable because of contaminants in the reaction chamber. The computer was forced to automatically eject it. Without the main reactor, the ship could still be stopped in time."
+bbcode_text = "\"Captain to Engineering! We just updated the ship's computer, but now we've lost control of the controls. The computer has set itself to fly into an asteroid, that is [b]two minutes[/b] away.\" 
+
+\"By the way, The [img]res://src/sprites/Constructor_Icon.png[/img] Constructor is also locked, but it still works if you have enough [img]res://src/sprites/CreditIcon.png[/img] credits. You can still earn them by doing tasks on the wall and floor panels or the computer.\"
+
+[b]I may be able to use the constructor to generate material that I can throw into the reactor to destabilize it.[/b]
+
+\"...Maybe you were right, I probably shouldn't install [i]unstable[/i] updates to our computer...\""
+text = "\"Captain to Engineering! We just updated the ship's computer, but now we've lost control of the controls. The computer has set itself to fly into an asteroid, that is two minutes away.\" 
+
+\"By the way, The  Constructor is also locked, but it still works if you have enough  credits. You can still earn them by doing tasks on the wall and floor panels or the computer.\"
+
+I may be able to use the constructor to generate material that I can throw into the reactor to destabilize it.
+
+\"...Maybe you were right, I probably shouldn't install unstable updates to our computer...\""
 fit_content_height = true
 
 [node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
-margin_top = 124.0
+margin_top = 400.0
 margin_right = 500.0
-margin_bottom = 157.0
-text = "Back to Main Menu"
+margin_bottom = 433.0
+text = "Continiue"
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]

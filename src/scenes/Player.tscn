@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/sprites/Player.png" type="Texture" id=1]
 [ext_resource path="res://src/scripts/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://src/animations/player.tres" type="SpriteFrames" id=4]
 [ext_resource path="res://src/theme/HUDTheme.tres" type="Theme" id=5]
 [ext_resource path="res://src/sprites/CreditIcon.png" type="Texture" id=6]
+[ext_resource path="res://src/sounds/Step.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 16 )
@@ -98,6 +99,10 @@ texture = ExtResource( 6 )
 gravity = Vector2( 0, -98 )
 scale_amount_curve = SubResource( 2 )
 color_ramp = SubResource( 3 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+volume_db = -15.0
 
 [connection signal="timeout" from="WorkTimer" to="." method="_on_WorkTimer_timeout"]
 [connection signal="timeout" from="PassiveGainTimer" to="." method="_on_PassiveGainTimer_timeout"]

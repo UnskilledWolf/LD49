@@ -10,8 +10,8 @@ bg_color = Color( 1, 1, 1, 1 )
 
 [resource]
 default_font = ExtResource( 1 )
-ProgressBar/colors/font_color = Color( 0.447059, 0.447059, 0.447059, 1 )
-ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+ProgressBar/colors/font_color = Color( 0.2, 0.2, 0.2, 1 )
+ProgressBar/colors/font_color_shadow = Color( 0, 0, 0, 1 )
 ProgressBar/fonts/font = ExtResource( 1 )
 ProgressBar/styles/bg = SubResource( 1 )
 ProgressBar/styles/fg = SubResource( 2 )

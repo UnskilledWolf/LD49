@@ -80,6 +80,9 @@ func set_animation(direction: Vector2):
 			to_animation = "lwalk"
 		elif facing == PlayerFacing.right:
 			to_animation = "rwalk"
+		
+		if $AudioStreamPlayer.playing == false:
+			$AudioStreamPlayer.play()
 	
 	if $Sprite.animation != to_animation:
 		$Sprite.animation = to_animation

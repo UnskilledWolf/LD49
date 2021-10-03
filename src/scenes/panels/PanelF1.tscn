@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/scripts/Panel.gd" type="Script" id=1]
 [ext_resource path="res://src/sprites/panels/PanelF1C.tres" type="Texture" id=2]
 [ext_resource path="res://src/sprites/panels/PanelF1O.tres" type="Texture" id=3]
+[ext_resource path="res://src/sounds/Fix1.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 56, 56 )
@@ -14,9 +15,15 @@ script = ExtResource( 1 )
 open_texture = ExtResource( 3 )
 closed_texture = ExtResource( 2 )
 panel_name = "panelf1"
+reward = 20
+penalty = 5.0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0

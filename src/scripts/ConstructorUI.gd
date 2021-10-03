@@ -17,7 +17,8 @@ func buy(id: int):
 func _on_gm_open_constructor():
 	$CenterContainer/PanelContainer/VBoxContainer/CreditsContainer/CreditAmount.text = String(GameManager.constructor_credits)
 	self.visible = true
-	#$CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/Snack.grab_focus()
+	yield(get_tree(), "idle_frame")
+	$CenterContainer/PanelContainer/VBoxContainer/VBoxContainer/Snack.grab_focus()
 
 func _on_gm_end_work(_reward):
 	self.visible = false

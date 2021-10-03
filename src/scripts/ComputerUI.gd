@@ -15,7 +15,8 @@ func _ready():
 func _on_gm_start_work(name: String, duration: float, reward: int, penalty: float):
 	if name == "computer":
 		self.visible = true
-		#$CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/HackButton.grab_focus()
+		yield(get_tree(), "idle_frame")
+		$CenterContainer/PanelContainer/VBoxContainer/HBoxContainer/HackButton.grab_focus()
 
 func _on_gm_end_work(_reward):
 	self.visible = false

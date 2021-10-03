@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Reactor.png-925c1725f864c87d99c5f8498f5196c7.stex"
+path="res://.import/Constructor_Icon.png-03cf337c375f4b9e960704052db7f625.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://src/sprites/Reactor.png"
-dest_files=[ "res://.import/Reactor.png-925c1725f864c87d99c5f8498f5196c7.stex" ]
+source_file="res://src/sprites/Constructor_Icon.png"
+dest_files=[ "res://.import/Constructor_Icon.png-03cf337c375f4b9e960704052db7f625.stex" ]
 
 [params]
 
