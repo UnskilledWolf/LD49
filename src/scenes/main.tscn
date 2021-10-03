@@ -107,7 +107,7 @@ texture = ExtResource( 4 )
 [node name="Reactor" type="AnimatedSprite" parent="Map"]
 position = Vector2( -964.436, 0 )
 frames = ExtResource( 5 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Light2D6" type="Light2D" parent="Map/Reactor"]

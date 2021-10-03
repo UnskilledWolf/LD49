@@ -20,7 +20,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="LD49"
+config/name="LD49 Destabilize a Reactor"
 config/description="Make a reactor unstable :D"
 run/main_scene="res://src/scenes/MainMenu.tscn"
 config/icon="res://icon.png"

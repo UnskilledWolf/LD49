@@ -26,6 +26,11 @@ func _process(delta):
 		$Arrival.play()
 
 func game_won():
+	$An1Min.stop()
+	$An30Sec.stop()
+	$An15Sec.stop()
+	$Arrival.stop()
+	
 	played1min = true;
 	played15sec = true;
 	played30sec = true;
