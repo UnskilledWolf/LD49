@@ -9,6 +9,7 @@ var playedarrival = false;
 
 func _ready():
 	GameManager.countdown_timer = $GameEndTimer
+	GameManager.connect("game_won", self, "game_won")
 
 func _process(delta):
 	if not played1min and GameManager.countdown_timer.time_left <= 60:
@@ -23,6 +24,12 @@ func _process(delta):
 	elif not playedarrival and GameManager.countdown_timer.time_left <= 6:
 		playedarrival = true
 		$Arrival.play()
+
+func game_won():
+	played1min = true;
+	played15sec = true;
+	played30sec = true;
+	playedarrival = true;
 
 func _on_Timer_timeout():
 	GameManager.remove_reactor_stability(-repait_ammount)

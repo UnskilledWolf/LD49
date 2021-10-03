@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/sprites/Map.png" type="Texture" id=1]
 [ext_resource path="res://src/scenes/Player.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://src/scripts/GameWonAnimation.gd" type="Script" id=21]
 [ext_resource path="res://src/sounds/Eject.wav" type="AudioStream" id=22]
 [ext_resource path="res://src/sounds/Reactor_Hum.wav" type="AudioStream" id=23]
+[ext_resource path="res://src/sounds/EjectVoice.wav" type="AudioStream" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 936, 112 )
@@ -35,7 +36,7 @@ extents = Vector2( 208, 288 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "GameWon"
-length = 2.0
+length = 4.7
 tracks/0/type = "value"
 tracks/0/path = NodePath("Map/Reactor:position")
 tracks/0/interp = 1
@@ -43,7 +44,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.7, 1.2 ),
+"times": PoolRealArray( 0, 0.4, 2, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 0.366021, 0.277393 ),
 "update": 0,
 "values": [ Vector2( -964.436, 0 ), Vector2( -964.436, -48 ), Vector2( -964.436, -48 ), Vector2( -964.436, 1096 ) ]
@@ -55,24 +56,38 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.4, 1.7, 1.9 ),
+"times": PoolRealArray( 0, 0.4, 4, 4.7 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0.517647, 0.156863, 0.156863, 0 ), Color( 0.517647, 0.156863, 0.156863, 0.341176 ), Color( 0.517647, 0.156863, 0.156863, 0.341176 ), Color( 0, 0, 0, 1 ) ]
 }
-tracks/2/type = "method"
-tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/type = "audio"
+tracks/2/path = NodePath("EJectVoice")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [ 0.0 ],
-"method": "play"
-} ]
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 24 )
+} ],
+"times": PoolRealArray( 0.2 )
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("EjectReactor")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 22 )
+} ],
+"times": PoolRealArray( 2 )
 }
 
 [node name="Main" type="Node2D"]
@@ -92,7 +107,7 @@ texture = ExtResource( 4 )
 [node name="Reactor" type="AnimatedSprite" parent="Map"]
 position = Vector2( -964.436, 0 )
 frames = ExtResource( 5 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Light2D6" type="Light2D" parent="Map/Reactor"]
@@ -240,8 +255,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="EjectReactor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 22 )
 volume_db = -1.0
+
+[node name="EJectVoice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 24 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_AnimationPlayer_animation_finished"]
