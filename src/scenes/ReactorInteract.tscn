@@ -19,6 +19,8 @@ script = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="DropParticles" type="CPUParticles2D" parent="."]
+position = Vector2( -32, -32 )
+z_index = 4
 emitting = false
 amount = 1
 lifetime = 1.5

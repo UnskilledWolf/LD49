@@ -5,7 +5,7 @@
 [ext_resource path="res://src/sprites/panels/PanelF1O.tres" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 24 )
+extents = Vector2( 56, 56 )
 
 [node name="PanelF1" type="StaticBody2D"]
 collision_layer = 4
