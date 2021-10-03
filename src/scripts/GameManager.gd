@@ -41,3 +41,5 @@ func open_constructor():
 
 func game_over():
 	get_tree().change_scene("res://src/scenes/GameOver.tscn")
+	reactor_stability=100
+	constructor_credits=0

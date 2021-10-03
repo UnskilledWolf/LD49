@@ -4,4 +4,4 @@ func _ready():
 	$CenterContainer/VBoxContainer/Button.grab_focus()
 
 func _on_Button_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene("res://src/scenes/MainMenu.tscn")
